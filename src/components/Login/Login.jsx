@@ -36,15 +36,15 @@ const Login = () => {
   const handleGoogleUser = () => {
     googleUser()
       .then(() => {
-        console.log("Login Successful");
         toast("Login with Google account successful");
+        setLoading(false);
 
         // Navigate after login
         // navigate(location.state ? location.state : "/");
       })
       .catch(() => {
-        console.log("Login Failed");
         toast("User Login Failed");
+        setLoading(false);
       });
   };
 

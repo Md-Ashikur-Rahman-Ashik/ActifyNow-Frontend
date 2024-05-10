@@ -5,10 +5,10 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import { createContext, useEffect, useState } from "react";
-import { GoogleAuthProvider } from "firebase/auth/cordova";
 
 const auth = getAuth(app);
 export const AuthContext = createContext(null);

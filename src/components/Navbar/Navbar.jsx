@@ -3,7 +3,18 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { signOutUser, user, loading } = useContext(AuthContext);
+
+  if (loading) {
+    return (
+      <div>
+        <span className="loading loading-bars loading-xs"></span>
+        <span className="loading loading-bars loading-sm"></span>
+        <span className="loading loading-bars loading-md"></span>
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
 
   const navLinks = (
     <>
@@ -27,7 +38,9 @@ const Navbar = () => {
     </>
   );
 
-  const handleSignOut = () => {};
+  const handleSignOut = () => {
+    signOutUser();
+  };
 
   return (
     <div className="navbar bg-base-100 container p-6 mx-auto">
@@ -63,33 +76,38 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end dropdown">
+      <div className="navbar-end dropdown flex justify-normal">
         {user ? (
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              <img title={user?.displayName} src={user?.photoURL} alt="User" />
+          <div className="dropdown dropdown-end flex">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  title={user.displayName}
+                  src={user.photoURL}
+                />
+              </div>
             </div>
-            <span className="btn" onClick={handleSignOut}>
-              LogOut
-            </span>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="mt-3 z-[1] p-2 shadow top-10 menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
+                <NavLink to={"/add-volunteer-post"} className="justify-between">
+                  Add Volunteer NavLink
+                </NavLink>
               </li>
               <li>
-                <a>Settings</a>
+                <NavLink to={"/manage-my-post"}>Manage My Post</NavLink>
               </li>
             </ul>
+            <span className="btn btn-ghost font-bold" onClick={handleSignOut}>
+              LogOut
+            </span>
           </div>
         ) : (
           <NavLink to="/login" className="btn-ghost btn font-bold">
