@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#383e52]">
+    <footer className="bg-blue-200">
       <div className="container p-6 mx-auto text-center md:text-left">
         <div className="lg:flex justify-center items-center">
           <div className="w-full lg:w-1/2">
@@ -11,14 +11,14 @@ const Footer = () => {
                 ActifyNow
               </Link>
 
-              <p className="max-w-sm mt-2 text-white">
+              <p className="max-w-sm mt-2 text-black">
                 Join 31,000+ other and never miss out any info about volunteers.
               </p>
 
               <div className="flex mt-6 justify-center lg:justify-normal">
                 <Link
                   href="#"
-                  className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                  className="mx-2 text-black transition-colors duration-300 dark:text-black hover:text-blue-500 dark:hover:text-blue-400"
                   aria-label="Reddit"
                 >
                   <svg
@@ -33,7 +33,7 @@ const Footer = () => {
 
                 <Link
                   href="#"
-                  className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                  className="mx-2 text-black transition-colors duration-300 dark:text-black hover:text-blue-500 dark:hover:text-blue-400"
                   aria-label="Facebook"
                 >
                   <svg
@@ -48,7 +48,7 @@ const Footer = () => {
 
                 <Link
                   href="#"
-                  className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                  className="mx-2 text-black transition-colors duration-300 dark:text-black hover:text-blue-500 dark:hover:text-blue-400"
                   aria-label="Github"
                 >
                   <svg
@@ -67,28 +67,28 @@ const Footer = () => {
           <div className="mt-6 px-6 lg:mt-0 lg:w-1/2">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 text-center md:text-left">
               <div>
-                <h3 className="text-gray-700 uppercase dark:text-white">
+                <h3 className="text-gray-700 uppercase dark:text-black">
                   About
                 </h3>
                 <Link
                   to={"/"}
-                  className="block mt-2 text-sm text-white hover:underline"
+                  className="block mt-2 text-sm text-black hover:underline"
                 >
                   Organization
                 </Link>
                 <Link
                   to={"/"}
-                  className="block mt-2 text-sm text-white hover:underline"
+                  className="block mt-2 text-sm text-black hover:underline"
                 >
                   Community
                 </Link>
               </div>
 
               <div>
-                <h3 className="text-gray-700 uppercase dark:text-white">
+                <h3 className="text-gray-700 uppercase dark:text-black">
                   Contact
                 </h3>
-                <span className="block mt-2 text-sm text-white hover:underline">
+                <span className="block mt-2 text-sm text-black hover:underline">
                   admin@actifynow.com
                 </span>
               </div>
@@ -99,7 +99,7 @@ const Footer = () => {
         <hr className="h-px my-6 bg-gray-200 border-none dark:bg-gray-700" />
 
         <div>
-          <p className="text-center text-white">
+          <p className="text-center text-black">
             © ActifyNow 2024 - All rights reserved
           </p>
         </div>
