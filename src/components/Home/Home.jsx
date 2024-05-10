@@ -1,11 +1,5 @@
-import Navbar from "../Navbar/Navbar";
-
 const Home = () => {
-  return (
-    <div className="mx-10">
-      <Navbar></Navbar>
-    </div>
-  );
+  return <div className="min-h-[calc(100vh-349px)]"></div>;
 };
 
 export default Home;
