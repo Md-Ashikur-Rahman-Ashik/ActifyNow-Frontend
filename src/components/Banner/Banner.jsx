@@ -32,7 +32,7 @@ const Banner = () => {
               src="https://i.ibb.co/44bVzp6/first-Slider.png"
               alt=""
             />
-            <p className="absolute bg-gradient-to-r from-[#151515] to-[#634a4a] bottom-0 lg:bottom-5 lg:text-4xl text-blue-200 p-4 rounded-xl md:left-24 lg:left-64 text-center font-bold md:w-2/3 lg:w-2/3 opacity-90">
+            <p className="absolute bg-gradient-to-r from-[#151515] to-[#634a4a] bottom-5 lg:bottom-5 lg:text-4xl text-2xl text-blue-200 p-4 rounded-xl md:left-24 lg:left-64 text-center font-bold md:w-3/4 lg:w-2/3 opacity-90">
               Join Us in Making a Difference! Become a Volunteer Today and Be a
               Part of Something Meaningful
             </p>
@@ -45,7 +45,7 @@ const Banner = () => {
               src="https://i.ibb.co/WcL66C2/second-Slider.png"
               alt=""
             />
-            <p className="absolute bottom-0 lg:bottom-5 lg:text-4xl text-white bg-gradient-to-r from-[#151515] to-[#634a4a] p-4 rounded-xl md:left-24 lg:left-64 font-bold md:w-2/3 lg:w-2/3 opacity-90">
+            <p className="absolute text-center bottom-5 lg:bottom-5 lg:text-4xl text-2xl text-blue-200 bg-gradient-to-r from-[#151515] to-[#634a4a] p-4 rounded-xl md:left-24 lg:left-64 font-bold md:w-3/4 lg:w-2/3 opacity-90">
               Discover Your Passion, Make an Impact! Explore a Variety of
               Volunteer Opportunities Tailored to Your Interests and Skills
             </p>
@@ -58,7 +58,7 @@ const Banner = () => {
               src="https://i.ibb.co/hsTrbPh/third-Slider.png"
               alt=""
             />
-            <p className="absolute bottom-0 lg:bottom-5 lg:text-4xl text-white bg-gradient-to-r from-[#151515] to-[#634a4a] p-4 rounded-xl md:left-24 lg:left-64 font-bold md:w-2/3 lg:w-2/3 opacity-90">
+            <p className="absolute bottom-5 text-center lg:bottom-5 lg:text-4xl text-2xl text-blue-200 bg-gradient-to-r from-[#151515] to-[#634a4a] p-4 rounded-xl md:left-24 lg:left-64 font-bold md:w-3/4 lg:w-2/3 opacity-90">
               Ready to Make a Difference? Sign Up Today to Volunteer and Start
               Creating Positive Change in Your Community
             </p>
