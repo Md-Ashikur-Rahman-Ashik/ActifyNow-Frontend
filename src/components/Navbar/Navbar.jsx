@@ -27,6 +27,8 @@ const Navbar = () => {
     </>
   );
 
+  const handleSignOut = () => {};
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -62,18 +64,24 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end dropdown">
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn btn-ghost btn-circle avatar"
-        >
-          <div className="w-10 rounded-full">
-            <img
-              alt="Tailwind CSS Navbar component"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-            />
+        {user ? (
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle avatar"
+          >
+            <div className="w-10 rounded-full">
+              <img title={user?.displayName} src={user?.photoURL} alt="User" />
+            </div>
+            <span className="btn" onClick={handleSignOut}>
+              LogOut
+            </span>
           </div>
-        </div>
+        ) : (
+          <NavLink to="/login" className="btn-ghost btn font-bold">
+            Login
+          </NavLink>
+        )}
         <ul
           tabIndex={0}
           className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
