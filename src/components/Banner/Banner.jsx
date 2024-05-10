@@ -15,7 +15,7 @@ const Banner = () => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -45,22 +45,22 @@ const Banner = () => {
               src="https://i.ibb.co/WcL66C2/second-Slider.png"
               alt=""
             />
-            <p className="absolute bottom-0 lg:bottom-5 lg:text-2xl text-white bg-gradient-to-r from-[#151515] to-[#634a4a] p-4 rounded-xl md:left-24 lg:left-72 font-bold md:w-2/3 lg:w-1/2 opacity-90">
-              Get wrapped up in Knitting & Crocheting. Discover the joy of
-              creating warm and stylish pieces with your own hands.
+            <p className="absolute bottom-0 lg:bottom-5 lg:text-4xl text-white bg-gradient-to-r from-[#151515] to-[#634a4a] p-4 rounded-xl md:left-24 lg:left-64 font-bold md:w-2/3 lg:w-2/3 opacity-90">
+              Discover Your Passion, Make an Impact! Explore a Variety of
+              Volunteer Opportunities Tailored to Your Interests and Skills
             </p>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div>
             <img
-              className="h-[500px] w-full rounded-xl relative"
-              src="https://i.ibb.co/WcL66C2/second-Slider.png"
+              className="h-[500px] opacity-70 w-full rounded-xl relative"
+              src="https://i.ibb.co/hsTrbPh/third-Slider.png"
               alt=""
             />
-            <p className="absolute bottom-0 lg:bottom-20 lg:text-2xl text-white bg-black p-4 rounded-xl md:left-24 lg:left-72 font-bold md:w-2/3 lg:w-1/2">
-              Dive into the world of Quilting. From traditional patchwork to
-              modern designs, find inspiration for your next quilt project.
+            <p className="absolute bottom-0 lg:bottom-5 lg:text-4xl text-white bg-gradient-to-r from-[#151515] to-[#634a4a] p-4 rounded-xl md:left-24 lg:left-64 font-bold md:w-2/3 lg:w-2/3 opacity-90">
+              Ready to Make a Difference? Sign Up Today to Volunteer and Start
+              Creating Positive Change in Your Community
             </p>
           </div>
         </SwiperSlide>
