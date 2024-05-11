@@ -2,11 +2,54 @@ import { useLoaderData } from "react-router-dom";
 
 const ApplyVolunteer = () => {
   const volunteer = useLoaderData();
-  console.log(volunteer);
+  const {
+    thumbnail,
+    postTitle,
+    description,
+    categoryBox,
+    location,
+    numberOfVolunteers,
+    date,
+    organizerName,
+    organizerEmail,
+  } = volunteer;
 
   return (
-    <div className="hero container p-6 mx-auto min-h-[calc(100vh-349px)]">
-      <h2>This is apply volunteer page</h2>
+    <div className="hero container p-6 mx-auto min-h-[calc(100vh-349px)] flex">
+      <div className="card bg-base-100 shadow-xl hover:scale-105 transition-transform">
+        <figure>
+          <img src={thumbnail} className="h-96 w-full" alt="Album" />
+        </figure>
+        <div className="p-8">
+          <div className="flex justify-between mb-2">
+            <p className="font-bold">{categoryBox}</p>
+            <p className="font-bold text-red-500">Deadline: {date}</p>
+          </div>
+          <div className="flex justify-between gap-10 mb-2">
+            <p className="font-bold">Location:
+              {location ? location : " No Data Available"}
+            </p>
+            <p className="font-bold">
+              Number of Volunteer Needed:{" "}
+              {numberOfVolunteers ? numberOfVolunteers : "No Data Available"}
+            </p>
+          </div>
+          <div className="flex justify-between mb-2">
+            <p className="font-bold">Organizer Name:
+              {location ? location : " No Data Available"}
+            </p>
+            <p className="font-bold">
+              Number of Volunteer Needed:{" "}
+              {numberOfVolunteers ? numberOfVolunteers : "No Data Available"}
+            </p>
+          </div>
+          <h2 className="text-xl font-bold text-blue-400 mb-4 text-center">
+            {postTitle}
+          </h2>
+          <div></div>
+        </div>
+      </div>
+      <div></div>
     </div>
   );
 };
