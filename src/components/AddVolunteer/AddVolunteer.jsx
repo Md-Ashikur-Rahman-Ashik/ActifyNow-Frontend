@@ -20,6 +20,8 @@ const AddVolunteer = () => {
     const location = form?.location?.value;
     const numberOfVolunteers = parseInt(form?.numberOfVolunteers?.value);
     const date = startDate?.toLocaleDateString();
+    const organizerName = user?.displayName;
+    const organizerEmail = user?.email;
 
     const newVolunteer = {
       thumbnail,
@@ -29,6 +31,8 @@ const AddVolunteer = () => {
       location,
       numberOfVolunteers,
       date,
+      organizerName,
+      organizerEmail,
     };
 
     // Send data to the server

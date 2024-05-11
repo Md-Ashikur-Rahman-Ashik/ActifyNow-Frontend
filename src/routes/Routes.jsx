@@ -7,6 +7,7 @@ import Register from "../components/Register/Register";
 import AddVolunteer from "../components/AddVolunteer/AddVolunteer";
 import PrivateRoute from "./PrivateRoute";
 import VolunteerDetails from "../components/VolunteerDetails/VolunteerDetails";
+import ApplyVolunteer from "../components/ApplyVolunteer/ApplyVolunteer";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,16 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <VolunteerDetails></VolunteerDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/volunteer/${params.id}`),
+      },
+      {
+        path: "/apply-volunteer/:id",
+        element: (
+          <PrivateRoute>
+            <ApplyVolunteer></ApplyVolunteer>
           </PrivateRoute>
         ),
         loader: ({ params }) =>

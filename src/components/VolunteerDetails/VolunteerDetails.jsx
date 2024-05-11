@@ -12,6 +12,8 @@ const VolunteerDetails = () => {
     numberOfVolunteers,
     date,
     _id,
+    organizerName,
+    organizerEmail,
   } = volunteer;
 
   return (
@@ -38,6 +40,9 @@ const VolunteerDetails = () => {
         </p>
         <p className="font-bold justify-center text-center flex items-center border-2 p-2 border-blue-400 rounded-xl text-xl text-red-500">
           Deadline: {date}
+        </p>
+        <p className="font-bold justify-center text-center flex items-center border-2 p-2 border-blue-400 rounded-xl text-xl">
+          Organizer: {organizerName ? organizerName : "Nothing Mentioned"}
         </p>
       </div>
       <p className="mt-10 text-center text-xl font-bold">
