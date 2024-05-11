@@ -7,7 +7,7 @@ const Navbar = () => {
 
   if (loading) {
     return (
-      <div>
+      <div className="flex justify-center">
         <span className="loading loading-bars loading-xs"></span>
         <span className="loading loading-bars loading-sm"></span>
         <span className="loading loading-bars loading-md"></span>
@@ -98,7 +98,7 @@ const Navbar = () => {
             >
               <li>
                 <NavLink to={"/add-volunteer-post"} className="justify-between">
-                  Add Volunteer
+                  Add Volunteer Post
                 </NavLink>
               </li>
               <li>

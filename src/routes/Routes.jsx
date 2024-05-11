@@ -4,6 +4,8 @@ import Root from "../components/Root/Root";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
+import AddVolunteer from "../components/AddVolunteer/AddVolunteer";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/add-volunteer-post",
+        element: (
+          <PrivateRoute>
+            <AddVolunteer></AddVolunteer>
+          </PrivateRoute>
+        ),
       },
     ],
   },

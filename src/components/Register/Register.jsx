@@ -2,11 +2,12 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { user, registerUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,7 +36,7 @@ const Register = () => {
           photoURL: photo,
         });
         form.reset();
-        // navigate("/");
+        navigate("/");
       })
       .catch(() => {
         toast("User Registration Failed");
@@ -103,7 +104,9 @@ const Register = () => {
           />
         </div>
         <div className="form-control mt-6">
-          <button className="btn text-blue-400 hover:scale-105 transition-transform bg-blue-50">Register</button>
+          <button className="btn text-blue-400 hover:scale-105 transition-transform bg-blue-50">
+            Register
+          </button>
         </div>
         <p className="flex gap-1 justify-center mt-4">
           {"Already have an account? Please"}

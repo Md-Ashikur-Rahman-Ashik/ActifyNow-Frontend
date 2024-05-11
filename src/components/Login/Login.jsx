@@ -1,13 +1,16 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
   const { user, logInUser, googleUser, setLoading } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   //   console.log(googleUser);
 
@@ -23,7 +26,7 @@ const Login = () => {
         toast("User Login Successful");
 
         // Navigate after login
-        // navigate(location.state ? location.state : "/");
+        navigate(location.state ? location.state : "/");
       })
       .catch(() => {
         toast("User Login Failed");
@@ -40,7 +43,7 @@ const Login = () => {
         setLoading(false);
 
         // Navigate after login
-        // navigate(location.state ? location.state : "/");
+        navigate(location.state ? location.state : "/");
       })
       .catch(() => {
         toast("User Login Failed");
@@ -83,7 +86,9 @@ const Login = () => {
           />
         </div>
         <div className="form-control mt-6">
-          <button className="btn text-blue-400 hover:scale-105 transition-transform bg-blue-50">Login</button>
+          <button className="btn text-blue-400 hover:scale-105 transition-transform bg-blue-50">
+            Login
+          </button>
         </div>
         <button
           onClick={handleGoogleUser}
