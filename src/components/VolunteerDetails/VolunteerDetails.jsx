@@ -43,7 +43,7 @@ const VolunteerDetails = () => {
         {description ? description : "No Description Added"}
       </p>
       <div className="mt-10 flex justify-center">
-        <button className="btn font-bold text-xl text-blue-400 bg-blue-50 w-1/3 hover:scale-105 transition-transform">Be A Volunteer</button>
+        <button className="btn font-bold text-xl text-blue-400 bg-blue-50 w-1/2 md:w-1/3 hover:scale-105 transition-transform">Be A Volunteer</button>
       </div>
     </div>
   );
