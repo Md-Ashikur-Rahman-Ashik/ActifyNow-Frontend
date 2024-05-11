@@ -6,6 +6,7 @@ import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import AddVolunteer from "../components/AddVolunteer/AddVolunteer";
 import PrivateRoute from "./PrivateRoute";
+import VolunteerDetails from "../components/VolunteerDetails/VolunteerDetails";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,16 @@ const router = createBrowserRouter([
             <AddVolunteer></AddVolunteer>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/volunteer/:id",
+        element: (
+          <PrivateRoute>
+            <VolunteerDetails></VolunteerDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/volunteer/${params.id}`),
       },
     ],
   },

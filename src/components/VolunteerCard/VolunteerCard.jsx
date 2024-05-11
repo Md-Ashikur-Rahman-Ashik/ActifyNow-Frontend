@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const VolunteerCard = ({ vol }) => {
-  const { title, thumbnail, category, deadline, _id } = vol;
+  const { postTitle, thumbnail, categoryBox, date, _id } = vol;
 
   return (
     <div className="card bg-base-100 shadow-xl hover:scale-105 transition-transform">
@@ -10,13 +10,13 @@ const VolunteerCard = ({ vol }) => {
       </figure>
       <div className="p-8">
         <div className="flex justify-between mb-2">
-          <p className="font-bold">{category}</p>
-          <p className="font-bold text-red-500">Deadline: {deadline}</p>
+          <p className="font-bold">{categoryBox}</p>
+          <p className="font-bold text-red-500">Deadline: {date}</p>
         </div>
         <h2 className="text-xl font-bold text-blue-400 mb-4 text-center">
-          {title}
+          {postTitle}
         </h2>
-        <div className="">
+        <div>
           <Link to={`/volunteer/${_id}`}>
             <button className="btn text-blue-400 bg-blue-50 font-bold w-full">
               View Details

@@ -15,6 +15,7 @@ const AddVolunteer = () => {
     const form = event.target;
     const thumbnail = form?.thumbnail?.value;
     const postTitle = form?.postTitle?.value;
+    const description = form?.description?.value;
     const categoryBox = document?.getElementById("category")?.value;
     const location = form?.location?.value;
     const numberOfVolunteers = parseInt(form?.numberOfVolunteers?.value);
@@ -23,6 +24,7 @@ const AddVolunteer = () => {
     const newVolunteer = {
       thumbnail,
       postTitle,
+      description,
       categoryBox,
       location,
       numberOfVolunteers,
@@ -30,14 +32,17 @@ const AddVolunteer = () => {
     };
 
     // Send data to the server
-    fetch("http://localhost:5000/volunteers", {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newVolunteer),
-    })
+    fetch(
+      "https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteers",
+      {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newVolunteer),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -94,6 +99,20 @@ const AddVolunteer = () => {
                 name="postTitle"
                 required
                 placeholder="Post Title"
+                className="flex py-2 w-full flex-1 border sm:text-sm rounded-r-md focus:ring-inset border-gray-300 px-2 text-black bg-white focus:ring-violet-400"
+              />
+            </div>
+          </div>
+          <div className="md:w-1/2">
+            <label className="block mb-1 text-sm font-medium text-blue-400">
+              Description
+            </label>
+            <div className="flex">
+              <input
+                type="text"
+                name="description"
+                required
+                placeholder="Description"
                 className="flex py-2 w-full flex-1 border sm:text-sm rounded-r-md focus:ring-inset border-gray-300 px-2 text-black bg-white focus:ring-violet-400"
               />
             </div>
@@ -178,7 +197,7 @@ const AddVolunteer = () => {
         <input
           type="submit"
           value="Add Post"
-          className="btn w-1/2 mt-4 bg-blue-50 text-blue-400 block mx-auto"
+          className="btn w-1/2 mt-4 hover:scale-105 transition-transform bg-blue-50 text-blue-400 block mx-auto"
         />
       </form>
     </div>
