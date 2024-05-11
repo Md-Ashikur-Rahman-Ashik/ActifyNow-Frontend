@@ -103,7 +103,7 @@ const Register = () => {
           />
         </div>
         <div className="form-control mt-6">
-          <button className="btn text-blue-400 bg-blue-100">Register</button>
+          <button className="btn text-blue-400 hover:scale-105 transition-transform bg-blue-50">Register</button>
         </div>
         <p className="flex gap-1 justify-center mt-4">
           {"Already have an account? Please"}

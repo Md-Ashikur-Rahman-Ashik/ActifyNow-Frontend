@@ -83,11 +83,11 @@ const Login = () => {
           />
         </div>
         <div className="form-control mt-6">
-          <button className="btn text-blue-400 bg-blue-100">Login</button>
+          <button className="btn text-blue-400 hover:scale-105 transition-transform bg-blue-50">Login</button>
         </div>
         <button
           onClick={handleGoogleUser}
-          className="btn w-full mt-4 text-blue-400 bg-blue-100"
+          className="btn w-full mt-4 hover:scale-105 transition-transform text-blue-400 bg-blue-50"
         >
           <FaGoogle /> Login with Google
         </button>

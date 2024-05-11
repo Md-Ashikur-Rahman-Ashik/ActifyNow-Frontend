@@ -15,7 +15,7 @@ const ErrorPage = () => {
             resolve the issue and get things back on track.
           </p>
           <Link to="/" className="flex justify-center space-x-4">
-            <button className="bg-white text-blue-600 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <button className="bg-white text-blue-600 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:scale-105 transition-transform">
               Return to Homepage
             </button>
           </Link>
