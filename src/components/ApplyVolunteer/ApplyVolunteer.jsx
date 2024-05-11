@@ -26,7 +26,8 @@ const ApplyVolunteer = () => {
             <p className="font-bold text-red-500">Deadline: {date}</p>
           </div>
           <div className="flex justify-between gap-10 mb-2">
-            <p className="font-bold">Location:
+            <p className="font-bold">
+              Location:
               {location ? location : " No Data Available"}
             </p>
             <p className="font-bold">
@@ -34,22 +35,25 @@ const ApplyVolunteer = () => {
               {numberOfVolunteers ? numberOfVolunteers : "No Data Available"}
             </p>
           </div>
-          <div className="flex justify-between mb-2">
-            <p className="font-bold">Organizer Name:
-              {location ? location : " No Data Available"}
+          <div className="flex justify-between gap-10 mb-2">
+            <p className="font-bold">
+              Organizer Name:
+              {organizerName ? organizerName : " No Data Available"}
             </p>
             <p className="font-bold">
-              Number of Volunteer Needed:{" "}
-              {numberOfVolunteers ? numberOfVolunteers : "No Data Available"}
+              Organizer Email:
+              {organizerEmail ? organizerEmail : " No Data Available"}
             </p>
           </div>
-          <h2 className="text-xl font-bold text-blue-400 mb-4 text-center">
+          <h2 className="text-xl font-bold mb-2 text-blue-400 text-center">
             {postTitle}
           </h2>
-          <div></div>
+          <p className="font-bold text-center">{description ? description : "No Data Available"}</p>
         </div>
       </div>
-      <div></div>
+      <form className="card bg-base-100 shadow-xl">
+        
+      </form>
     </div>
   );
 };
