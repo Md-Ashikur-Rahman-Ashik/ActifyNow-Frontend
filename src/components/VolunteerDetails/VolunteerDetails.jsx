@@ -32,10 +32,10 @@ const VolunteerDetails = () => {
           {categoryBox ? categoryBox : "No Category Selected"}
         </p>
         <p className="font-bold justify-center text-center flex items-center border-2 p-2 border-blue-400 rounded-xl text-xl">
-          {location ? location : "No location selected"}
+          Location: {location ? location : "No location selected"}
         </p>
         <p className="font-bold justify-center text-center flex items-center border-2 p-2 border-blue-400 rounded-xl text-xl">
-          Number of volunteers needed:
+          {"Number of volunteers needed: "}
           {numberOfVolunteers ? numberOfVolunteers : " Nothing Mentioned"}
         </p>
         <p className="font-bold justify-center text-center flex items-center border-2 p-2 border-blue-400 rounded-xl text-xl text-red-500">

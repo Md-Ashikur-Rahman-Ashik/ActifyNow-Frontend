@@ -16,7 +16,7 @@ const NeedVolunteer = () => {
         const data = res.data;
         setVolunteer(data);
       });
-  }, []);
+  }, [volunteer]);
 
   return (
     <div className="mt-20">

@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const ApplyVolunteer = () => {
   const volunteer = useLoaderData();
+  const { user } = useContext(AuthContext);
   const {
     thumbnail,
     postTitle,
@@ -15,8 +18,8 @@ const ApplyVolunteer = () => {
   } = volunteer;
 
   return (
-    <div className="hero container p-6 mx-auto min-h-[calc(100vh-349px)] flex">
-      <div className="card bg-base-100 shadow-xl hover:scale-105 transition-transform">
+    <div className="hero container p-6 mx-auto min-h-[calc(100vh-349px)] flex flex-row-reverse gap-5 justify-between">
+      <div className="card bg-base-100 shadow-xl">
         <figure>
           <img src={thumbnail} className="h-96 w-full" alt="Album" />
         </figure>
@@ -27,7 +30,7 @@ const ApplyVolunteer = () => {
           </div>
           <div className="flex justify-between gap-10 mb-2">
             <p className="font-bold">
-              Location:
+              {"Location: "}
               {location ? location : " No Data Available"}
             </p>
             <p className="font-bold">
@@ -37,22 +40,25 @@ const ApplyVolunteer = () => {
           </div>
           <div className="flex justify-between gap-10 mb-2">
             <p className="font-bold">
-              Organizer Name:
+              {"Organizer Name: "}
               {organizerName ? organizerName : " No Data Available"}
             </p>
             <p className="font-bold">
-              Organizer Email:
+              {"Organizer Email: "}
               {organizerEmail ? organizerEmail : " No Data Available"}
             </p>
           </div>
           <h2 className="text-xl font-bold mb-2 text-blue-400 text-center">
             {postTitle}
           </h2>
-          <p className="font-bold text-center">{description ? description : "No Data Available"}</p>
+          <p className="font-bold text-center">
+            {description ? description : "No Data Available"}
+          </p>
         </div>
       </div>
-      <form className="card bg-base-100 shadow-xl">
-        
+      <form className="card bg-base-100 shadow-xl p-4 text-center">
+        <p className="font-bold">Volunteer Name: {user?.displayName}</p>
+        <p className="font-bold">Volunteer Email: {user?.email}</p>
       </form>
     </div>
   );
