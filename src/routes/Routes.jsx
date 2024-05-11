@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import VolunteerDetails from "../components/VolunteerDetails/VolunteerDetails";
 import ApplyVolunteer from "../components/ApplyVolunteer/ApplyVolunteer";
 import VolunteerNeeded from "../components/VolunteerNeeded/VolunteerNeeded";
+import ManagePost from "../components/ManagePost/ManagePost";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,16 @@ const router = createBrowserRouter([
       {
         path: "/need-volunteer",
         element: <VolunteerNeeded></VolunteerNeeded>,
+      },
+      {
+        path: "/manage-my-post/:email",
+        element: (
+          <PrivateRoute>
+            <ManagePost></ManagePost>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/volunteers/${params.email}`),
       },
     ],
   },

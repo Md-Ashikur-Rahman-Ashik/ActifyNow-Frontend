@@ -102,7 +102,9 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to={"/manage-my-post"}>Manage My Post</NavLink>
+                <NavLink to={`/manage-my-post/${user?.email}`}>
+                  Manage My Post
+                </NavLink>
               </li>
             </ul>
             <span className="btn btn-ghost font-bold" onClick={handleSignOut}>
