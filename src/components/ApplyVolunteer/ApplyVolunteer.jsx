@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const ApplyVolunteer = () => {
   const volunteer = useLoaderData();
@@ -19,6 +20,7 @@ const ApplyVolunteer = () => {
 
   return (
     <div className="hero container p-6 mx-auto min-h-[calc(100vh-349px)] flex flex-row-reverse gap-5 justify-between">
+      <Helmet><title>Apply As A Volunteer | ActifyNow</title></Helmet>
       <div className="card bg-base-100 shadow-xl">
         <figure>
           <img src={thumbnail} className="h-96 w-full" alt="Album" />

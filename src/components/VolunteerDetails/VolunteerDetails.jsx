@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link, ScrollRestoration, useLoaderData } from "react-router-dom";
 
 const VolunteerDetails = () => {
@@ -19,6 +20,9 @@ const VolunteerDetails = () => {
   return (
     <div className="container p-6 mx-auto min-h-[calc(100vh-349px)]">
       <ScrollRestoration></ScrollRestoration>
+      <Helmet>
+        <title>Post Details | ActifyNow</title>
+      </Helmet>
       <h2 className="text-center text-blue-400 text-3xl md:text-5xl font-bold mb-5">
         {postTitle}
       </h2>

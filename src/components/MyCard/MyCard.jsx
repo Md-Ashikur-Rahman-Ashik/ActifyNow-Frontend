@@ -1,7 +1,35 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyCard = ({ vol }) => {
   const { postTitle, thumbnail, categoryBox, date, _id } = vol;
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/volunteer/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your Post has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="card bg-base-100 shadow-xl hover:scale-105 transition-transform">
@@ -27,7 +55,12 @@ const MyCard = ({ vol }) => {
               Update Post
             </button>
           </Link>
-          <button className="btn text-red-500 bg-blue-50 font-bold w-full">
+          <button
+            onClick={() => {
+              handleDelete(_id);
+            }}
+            className="btn text-red-500 bg-blue-50 font-bold w-full"
+          >
             Delete Post
           </button>
         </div>
