@@ -13,16 +13,21 @@ const ManagePost = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/volunteers?organizerEmail=${user?.email}`, {
-        withCredentials: true,
-      })
+      .get(
+        `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteers?organizerEmail=${user?.email}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => setVolunteer(res.data));
   }, [volunteer, user?.email]);
 
   // console.log(volunteer);
   return (
     <div className="hero container p-6 mx-auto min-h-[calc(100vh-349px)]">
-      <Helmet><title>Manage My Post | ActifyNow</title></Helmet>
+      <Helmet>
+        <title>Manage My Post | ActifyNow</title>
+      </Helmet>
       {volunteer?.length === 0 && (
         <h2 className="font-bold text-center text-5xl text-blue-400">
           Your Added Item will be shown here

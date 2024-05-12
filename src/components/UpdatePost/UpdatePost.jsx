@@ -49,14 +49,17 @@ const UpdatePost = () => {
     };
 
     // Send data to the server
-    fetch(`http://localhost:5000/volunteer/${_id}`, {
-      method: "PUT",
-      credentials: "include",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedVolunteer),
-    })
+    fetch(
+      `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteer/${_id}`,
+      {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedVolunteer),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

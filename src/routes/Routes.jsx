@@ -46,7 +46,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/volunteer/${params.id}`),
+          fetch(
+            `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteer/${params.id}`
+          ),
       },
       {
         path: "/apply-volunteer/:id",
@@ -56,7 +58,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/volunteer/${params.id}`),
+          fetch(
+            `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteer/${params.id}`
+          ),
       },
       {
         path: "/need-volunteer",
@@ -80,7 +84,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/volunteer/${params.id}`),
+          fetch(
+            `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteer/${params.id}`
+          ),
       },
     ],
   },

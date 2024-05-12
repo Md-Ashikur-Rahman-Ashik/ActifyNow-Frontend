@@ -45,14 +45,17 @@ const ApplyVolunteer = () => {
       suggestion,
     };
 
-    fetch(`http://localhost:5000/newVolunteer`, {
-      method: "POST",
-      credentials: "include",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newVolunteer),
-    })
+    fetch(
+      `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/newVolunteer`,
+      {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newVolunteer),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -75,14 +78,17 @@ const ApplyVolunteer = () => {
   };
 
   const decreaseCount = (_id) => {
-    fetch(`http://localhost:5000/newVolunteer/${_id}`, {
-      method: "PUT",
-      credentials: "include",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(),
-    })
+    fetch(
+      `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/newVolunteer/${_id}`,
+      {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(),
+      }
+    )
       .then((res) => res.json())
       .then((data) => console.log(data));
   };
