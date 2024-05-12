@@ -102,7 +102,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to={`/manage-my-post/${user?.email}`}>
+                <NavLink to={`/manage-my-post`}>
                   Manage My Post
                 </NavLink>
               </li>

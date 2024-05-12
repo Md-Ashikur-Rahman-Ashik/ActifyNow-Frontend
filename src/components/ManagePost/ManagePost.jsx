@@ -1,12 +1,27 @@
-import { useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import MyCard from "../MyCard/MyCard";
+import axios from "axios";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const ManagePost = () => {
-  const volunteer = useLoaderData();
+  const { user } = useContext(AuthContext);
+  // const volunteer = useLoaderData();
+  // console.log(volunteer);
+
+  const [volunteer, setVolunteer] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/volunteers?organizerEmail=${user?.email}`, {
+        withCredentials: true,
+      })
+      .then((res) => setVolunteer(res.data));
+  }, [volunteer, user?.email]);
+
   // console.log(volunteer);
   return (
     <div className="hero container p-6 mx-auto min-h-[calc(100vh-349px)]">
-      {volunteer.length === 0 && (
+      {volunteer?.length === 0 && (
         <h2 className="font-bold text-center text-5xl text-blue-400">
           Your Added Item will be shown here
         </h2>

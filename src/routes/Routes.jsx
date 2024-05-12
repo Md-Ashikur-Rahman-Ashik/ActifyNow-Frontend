@@ -62,14 +62,14 @@ const router = createBrowserRouter([
         element: <VolunteerNeeded></VolunteerNeeded>,
       },
       {
-        path: "/manage-my-post/:email",
+        path: "/manage-my-post",
         element: (
           <PrivateRoute>
             <ManagePost></ManagePost>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/volunteers/${params.email}`),
+        // loader: ({ params }) =>
+        //   fetch(`http://localhost:5000/volunteers/${params.email}`),
       },
     ],
   },
