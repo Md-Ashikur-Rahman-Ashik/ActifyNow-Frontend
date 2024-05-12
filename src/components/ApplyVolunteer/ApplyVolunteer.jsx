@@ -74,6 +74,19 @@ const ApplyVolunteer = () => {
       });
   };
 
+  const decreaseCount = (_id) => {
+    fetch(`http://localhost:5000/newVolunteer/${_id}`, {
+      method: "PUT",
+      credentials: "include",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -141,6 +154,7 @@ const ApplyVolunteer = () => {
           </div>
         </div>
         <input
+          onClick={() => decreaseCount(_id)}
           className="font-bold btn mt-4 bg-blue-100 text-blue-400"
           type="submit"
           value="Request"
