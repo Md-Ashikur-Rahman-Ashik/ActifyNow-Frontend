@@ -8,6 +8,7 @@ const VolunteerNeeded = () => {
   const [volunteer, setVolunteer] = useState([]);
   const [searchItem, setSearchItem] = useState("");
   const [filteredCards, setFilteredCards] = useState(volunteer);
+  const [loading, setLoading] = useState(true);
 
   // console.log(volunteer)
   // console.log(filteredCards)
@@ -21,6 +22,7 @@ const VolunteerNeeded = () => {
       .then((res) => {
         const data = res.data;
         setVolunteer(data);
+        setLoading(false);
       });
   }, [volunteer]);
 
@@ -36,6 +38,17 @@ const VolunteerNeeded = () => {
 
     setFilteredCards(filteredItems);
   };
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center">
+        <span className="loading loading-bars loading-xs"></span>
+        <span className="loading loading-bars loading-sm"></span>
+        <span className="loading loading-bars loading-md"></span>
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
+    );
+  }
 
   return (
     <div className="container p-6 mx-auto min-h-[calc(100vh-349px)]">
@@ -73,11 +86,19 @@ const VolunteerNeeded = () => {
           />
         </div>
       </fieldset>
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {filteredCards.map((vol) => (
-          <VolunteerCard key={vol._id} vol={vol}></VolunteerCard>
-        ))}
-      </div>
+      {searchItem !== "" ? (
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {filteredCards.map((vol) => (
+            <VolunteerCard key={vol._id} vol={vol}></VolunteerCard>
+          ))}
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {volunteer.map((vol) => (
+            <VolunteerCard key={vol._id} vol={vol}></VolunteerCard>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
