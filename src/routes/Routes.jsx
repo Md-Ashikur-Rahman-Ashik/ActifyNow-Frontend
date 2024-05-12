@@ -10,6 +10,7 @@ import VolunteerDetails from "../components/VolunteerDetails/VolunteerDetails";
 import ApplyVolunteer from "../components/ApplyVolunteer/ApplyVolunteer";
 import VolunteerNeeded from "../components/VolunteerNeeded/VolunteerNeeded";
 import ManagePost from "../components/ManagePost/ManagePost";
+import UpdatePost from "../components/UpdatePost/UpdatePost";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,16 @@ const router = createBrowserRouter([
         ),
         // loader: ({ params }) =>
         //   fetch(`http://localhost:5000/volunteers/${params.email}`),
+      },
+      {
+        path: "/update-post/:id",
+        element: (
+          <PrivateRoute>
+            <UpdatePost></UpdatePost>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/volunteer/${params.id}`),
       },
     ],
   },

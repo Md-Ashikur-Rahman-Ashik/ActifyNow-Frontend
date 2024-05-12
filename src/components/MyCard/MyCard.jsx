@@ -22,7 +22,7 @@ const MyCard = ({ vol }) => {
               View Details
             </button>
           </Link>
-          <Link>
+          <Link to={`/update-post/${_id}`}>
             <button className="btn mb-3 text-blue-400 bg-blue-50 font-bold w-full">
               Update Post
             </button>
