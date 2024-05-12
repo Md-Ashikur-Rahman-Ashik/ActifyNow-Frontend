@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const ApplyVolunteer = () => {
   const volunteer = useLoaderData();
@@ -16,11 +17,71 @@ const ApplyVolunteer = () => {
     date,
     organizerName,
     organizerEmail,
+    _id,
   } = volunteer;
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const volunteerNameField = document.getElementById("volunteerName");
+    const volunteerName = volunteerNameField.innerText;
+    const volunteerEmailField = document.getElementById("volunteerEmail");
+    const volunteerEmail = volunteerEmailField.innerText;
+    const suggestion = form.suggestion.value;
+
+    const newVolunteer = {
+      thumbnail,
+      postTitle,
+      description,
+      categoryBox,
+      location,
+      numberOfVolunteers,
+      date,
+      organizerName,
+      organizerEmail,
+      volunteerName,
+      volunteerEmail,
+      suggestion,
+    };
+
+    fetch(`http://localhost:5000/newVolunteer`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newVolunteer),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Volunteer Request Send Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        } else {
+          Swal.fire({
+            title: "Error!",
+            text: "Adding Volunteer Request failed",
+            icon: "error",
+            confirmButtonText: "Exit",
+          });
+        }
+      });
+  };
+
   return (
-    <div className="hero container p-6 mx-auto min-h-[calc(100vh-349px)] flex flex-row-reverse gap-5 justify-between">
-      <Helmet><title>Apply As A Volunteer | ActifyNow</title></Helmet>
+    <form
+      onSubmit={handleSubmit}
+      className="hero container p-6 mx-auto min-h-[calc(100vh-349px)] flex flex-row-reverse gap-5 justify-between"
+    >
+      <Helmet>
+        <title>Apply As A Volunteer | ActifyNow</title>
+      </Helmet>
       <div className="card bg-base-100 shadow-xl">
         <figure>
           <img src={thumbnail} className="h-96 w-full" alt="Album" />
@@ -58,11 +119,42 @@ const ApplyVolunteer = () => {
           </p>
         </div>
       </div>
-      <form className="card bg-base-100 shadow-xl p-4 text-center">
-        <p className="font-bold">Volunteer Name: {user?.displayName}</p>
-        <p className="font-bold">Volunteer Email: {user?.email}</p>
-      </form>
-    </div>
+      <div className="card bg-blue-50 shadow-xl p-5 text-center">
+        <p className="font-bold">
+          Volunteer Name: <span id="volunteerName">{user?.displayName}</span>
+        </p>
+        <p className="font-bold">
+          Volunteer Email: <span id="volunteerEmail">{user?.email}</span>
+        </p>
+        <div className="mt-2">
+          <label className="mb-2 flex justify-start text-xl font-medium text-blue-400">
+            Suggestion
+          </label>
+          <div className="flex">
+            <input
+              type="text"
+              name="suggestion"
+              required
+              placeholder="Suggestion"
+              className="flex py-2 w-full flex-1 border sm:text-sm rounded-r-md focus:ring-inset border-gray-300 px-2 text-black bg-white focus:ring-violet-400"
+            />
+          </div>
+        </div>
+        <input
+          className="font-bold btn mt-4 bg-blue-100 text-blue-400"
+          type="submit"
+          value="Request"
+        />
+        <div className="mt-2 flex gap-2">
+          <p className="mb-2 flex justify-start text-xl font-medium text-blue-400">
+            Status:
+          </p>
+          <p name="status" className="text-xl font-bold">
+            Requested
+          </p>
+        </div>
+      </div>
+    </form>
   );
 };
 

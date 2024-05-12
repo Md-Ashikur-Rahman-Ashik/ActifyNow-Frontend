@@ -54,7 +54,7 @@ const Login = () => {
   return (
     <div className="hero container p-6 mx-auto min-h-[calc(100vh-349px)]">
       <Helmet>
-        <title>ActifyNow | Login</title>
+        <title>Login | ActifyNow</title>
       </Helmet>
       <ToastContainer></ToastContainer>
       <form onSubmit={handleSubmit}>

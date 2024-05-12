@@ -46,7 +46,7 @@ const Register = () => {
   return (
     <div className="hero container p-6 mx-auto min-h-[calc(100vh-349px)]">
       <Helmet>
-        <title>ActifyNow | Register</title>
+        <title>Register | ActifyNow</title>
       </Helmet>
       <ToastContainer></ToastContainer>
       <form onSubmit={handleSubmit}>
