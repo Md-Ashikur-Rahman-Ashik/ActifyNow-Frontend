@@ -27,12 +27,12 @@ const VolunteerStories = () => {
   ];
 
   return (
-    <section className="bg-blue-50 py-12 mt-20">
+    <section className="bg-blue-50 rounded-xl py-12 mt-20">
       <div className="container mx-auto">
         <h2 className="text-4xl text-blue-400 font-bold text-center mb-8">
           Volunteer Success Stories
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:p-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {successStories.map((story) => (
             <div
               key={story.id}

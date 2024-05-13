@@ -33,12 +33,12 @@ const TipsVolunteer = () => {
   ];
 
   return (
-    <section className="bg-blue-50 mt-20 py-12">
+    <section className="bg-blue-50 mt-20 rounded-xl py-12">
       <div className="container mx-auto">
         <h2 className="text-4xl text-blue-400 font-bold text-center mb-8">
           Tips for Effective Volunteering
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:p-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tips.map((tip) => (
             <div
               key={tip.id}
