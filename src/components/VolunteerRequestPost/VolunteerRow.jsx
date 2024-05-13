@@ -41,7 +41,7 @@ const VolunteerRow = ({ vol }) => {
             </div>
           </div>
           <div>
-            <div className="lg:font-bold text-center md:text-xl text-black">{vol.postTitle}</div>
+            <div className="lg:font-bold text-center md:text-xl text-gray-400">{vol.postTitle}</div>
           </div>
         </div>
       </td>

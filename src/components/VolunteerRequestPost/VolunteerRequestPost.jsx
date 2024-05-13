@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import VolunteerRow from "./VolunteerRow";
+import { Helmet } from "react-helmet-async";
 
 const VolunteerRequestPost = () => {
   const { user } = useContext(AuthContext);
@@ -19,6 +20,7 @@ const VolunteerRequestPost = () => {
 
   return (
     <div className="hero container p-6 mx-auto min-h-[calc(100vh-349px)]">
+      <Helmet><title>My Volunteer Request Post | ActifyNow</title></Helmet>
       {volunteer?.length === 0 && (
         <h2 className="font-bold text-center text-5xl text-blue-400">
           Your Volunteer Request Posts will be shown here
