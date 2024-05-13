@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link, ScrollRestoration, useLoaderData } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const VolunteerDetails = () => {
   const volunteer = useLoaderData();
@@ -16,6 +18,14 @@ const VolunteerDetails = () => {
     organizerName,
     organizerEmail,
   } = volunteer;
+
+  const handleDisable = () => {
+    if (numberOfVolunteers === 0 || !numberOfVolunteers) {
+      toast(
+        "Number of volunteers isn't included. You should apply for another post"
+      );
+    }
+  };
 
   return (
     <div className="container p-6 mx-auto min-h-[calc(100vh-349px)]">
@@ -53,12 +63,22 @@ const VolunteerDetails = () => {
         {description ? description : "No Description Added"}
       </p>
       <div className="mt-10 flex justify-center">
-        <Link
-          to={`/apply-volunteer/${_id}`}
-          className="btn font-bold text-xl text-blue-400 bg-blue-50 w-1/2 md:w-1/3 hover:scale-105 transition-transform"
-        >
-          Be A Volunteer
-        </Link>
+        {numberOfVolunteers > 0 ? (
+          <Link
+            to={`/apply-volunteer/${_id}`}
+            className={`btn font-bold text-xl text-blue-400 bg-blue-50 w-1/2 md:w-1/3 hover:scale-105 transition-transform`}
+          >
+            <button onClick={handleDisable}>Be A Volunteer</button>
+          </Link>
+        ) : (
+          <button
+            className="btn font-bold text-xl text-blue-400 bg-blue-50 w-1/2 md:w-1/3 hover:scale-105 transition-transform"
+            onClick={handleDisable}
+          >
+            Be A Volunteer
+          </button>
+        )}
+        <ToastContainer></ToastContainer>
       </div>
     </div>
   );
