@@ -11,6 +11,7 @@ import ApplyVolunteer from "../components/ApplyVolunteer/ApplyVolunteer";
 import VolunteerNeeded from "../components/VolunteerNeeded/VolunteerNeeded";
 import ManagePost from "../components/ManagePost/ManagePost";
 import UpdatePost from "../components/UpdatePost/UpdatePost";
+import VolunteerRequestPost from "../components/VolunteerRequestPost/VolunteerRequestPost";
 
 const router = createBrowserRouter([
   {
@@ -87,6 +88,14 @@ const router = createBrowserRouter([
           fetch(
             `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteer/${params.id}`
           ),
+      },
+      {
+        path: "/my-volunteer-request-post",
+        element: (
+          <PrivateRoute>
+            <VolunteerRequestPost></VolunteerRequestPost>
+          </PrivateRoute>
+        ),
       },
     ],
   },

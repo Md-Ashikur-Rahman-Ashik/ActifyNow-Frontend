@@ -30,7 +30,7 @@ const ManagePost = () => {
       </Helmet>
       {volunteer?.length === 0 && (
         <h2 className="font-bold text-center text-5xl text-blue-400">
-          Your Added Item will be shown here
+          Your Added Posts will be shown here
         </h2>
       )}
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">

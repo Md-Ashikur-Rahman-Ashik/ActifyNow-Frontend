@@ -102,8 +102,11 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to={`/manage-my-post`}>
-                  Manage My Post
+                <NavLink to={`/manage-my-post`}>Manage My Post</NavLink>
+              </li>
+              <li>
+                <NavLink to={`/my-volunteer-request-post`}>
+                  My Volunteer Request Post
                 </NavLink>
               </li>
             </ul>

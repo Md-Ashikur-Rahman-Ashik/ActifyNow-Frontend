@@ -34,6 +34,7 @@ const Register = () => {
         toast("User Registration Successful");
         updateProfile(result.user, {
           photoURL: photo,
+          displayName: name,
         });
         form.reset();
         navigate("/");
