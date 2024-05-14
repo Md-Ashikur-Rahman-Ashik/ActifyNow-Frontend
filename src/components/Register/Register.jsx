@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-  const { user, registerUser } = useContext(AuthContext);
+  const { user, registerUser, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -32,10 +32,8 @@ const Register = () => {
     registerUser(email, password)
       .then((result) => {
         toast("User Registration Successful");
-        updateProfile(result.user, {
-          photoURL: photo,
-          displayName: name,
-        });
+        updateProfile(name, photo);
+        setUser({ ...user, photoURL: photo, displayName: name });
         form.reset();
         navigate("/");
       })
@@ -111,7 +109,7 @@ const Register = () => {
         </div>
         <p className="flex gap-1 justify-center mt-4">
           {"Already have an account? Please"}
-          <Link className="text-blue-400 font-bold" to="/register">
+          <Link className="text-blue-400 font-bold" to="/login">
             Login
           </Link>
         </p>
