@@ -14,9 +14,13 @@ const VolunteerRow = ({ vol }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/newVolunteer/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/newVolunteer/${_id}`,
+          { credentials: "include" },
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -41,7 +45,9 @@ const VolunteerRow = ({ vol }) => {
             </div>
           </div>
           <div>
-            <div className="lg:font-bold text-center md:text-xl text-gray-400">{vol.postTitle}</div>
+            <div className="lg:font-bold text-center md:text-xl text-gray-400">
+              {vol.postTitle}
+            </div>
           </div>
         </div>
       </td>

@@ -16,6 +16,7 @@ const MyCard = ({ vol }) => {
       if (result.isConfirmed) {
         fetch(
           `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteer/${_id}`,
+          { credentials: "include" },
           {
             method: "DELETE",
           }

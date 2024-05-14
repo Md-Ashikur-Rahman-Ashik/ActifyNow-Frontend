@@ -13,12 +13,9 @@ const ManagePost = () => {
 
   useEffect(() => {
     axios
-      .get(
-        `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteers?organizerEmail=${user?.email}`,
-        {
-          withCredentials: true,
-        }
-      )
+      .get(`https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteers?organizerEmail=${user?.email}`, {
+        withCredentials: true,
+      })
       .then((res) => setVolunteer(res.data));
   }, [volunteer, user?.email]);
 

@@ -48,7 +48,8 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteer/${params.id}`
+            `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteer/${params.id}`,
+            { credentials: "include" }
           ),
       },
       {
@@ -60,7 +61,8 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteer/${params.id}`
+            `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteer/${params.id}`,
+            { credentials: "include" }
           ),
       },
       {
@@ -74,8 +76,6 @@ const router = createBrowserRouter([
             <ManagePost></ManagePost>
           </PrivateRoute>
         ),
-        // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/volunteers/${params.email}`),
       },
       {
         path: "/update-post/:id",
@@ -86,7 +86,8 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteer/${params.id}`
+            `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/volunteer/${params.id}`,
+            { credentials: "include" }
           ),
       },
       {

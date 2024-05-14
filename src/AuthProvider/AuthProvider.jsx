@@ -49,25 +49,17 @@ const AuthProvider = ({ children }) => {
       // If user exists, then a token will be issue
       if (currentUser) {
         axios
-          .post(
-            "https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/jwt",
-            loggedUser,
-            {
-              withCredentials: true,
-            }
-          )
+          .post("https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/jwt", loggedUser, {
+            withCredentials: true,
+          })
           .then((res) => {
             console.log(res.data);
           });
       } else {
         axios
-          .post(
-            "https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/logout",
-            loggedUser,
-            {
-              withCredentials: true,
-            }
-          )
+          .post("https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/logout", loggedUser, {
+            withCredentials: true,
+          })
           .then((res) => {
             console.log(res.data);
           });
@@ -76,7 +68,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [user?.email]);
 
   const authInfo = {
     user,
