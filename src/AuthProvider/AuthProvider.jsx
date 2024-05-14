@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   signOut,
   GoogleAuthProvider,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import { createContext, useEffect, useState } from "react";
@@ -34,6 +35,13 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
+
   const signOutUser = () => {
     setLoading(true);
     return signOut(auth);
@@ -49,17 +57,25 @@ const AuthProvider = ({ children }) => {
       // If user exists, then a token will be issue
       if (currentUser) {
         axios
-          .post("https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/jwt", loggedUser, {
-            withCredentials: true,
-          })
+          .post(
+            "https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/jwt",
+            loggedUser,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log(res.data);
           });
       } else {
         axios
-          .post("https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/logout", loggedUser, {
-            withCredentials: true,
-          })
+          .post(
+            "https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/logout",
+            loggedUser,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log(res.data);
           });
@@ -79,6 +95,7 @@ const AuthProvider = ({ children }) => {
     signOutUser,
     googleUser,
     setUser,
+    updateUserProfile,
   };
 
   return (

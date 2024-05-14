@@ -96,7 +96,7 @@ const ApplyVolunteer = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="hero container p-6 mx-auto min-h-[calc(100vh-349px)] flex flex-col md:flex-row-reverse gap-5 justify-between"
+      className="hero container p-6 mx-auto min-h-[calc(100vh-349px)] flex flex-col md:flex-row-reverse gap-5 justify-center"
     >
       <Helmet>
         <title>Apply As A Volunteer | ActifyNow</title>
@@ -138,7 +138,7 @@ const ApplyVolunteer = () => {
           </p>
         </div>
       </div>
-      <div className="card bg-blue-50 shadow-xl p-5 text-center">
+      <div className="card bg-blue-50 shadow-xl w-full md:w-1/3 p-5 text-center">
         <p className="font-bold">
           Volunteer Name: <span id="volunteerName">{user?.displayName}</span>
         </p>

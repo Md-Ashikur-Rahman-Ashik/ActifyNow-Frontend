@@ -6,10 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-  const { user, registerUser, setUser } = useContext(AuthContext);
+  const { user, registerUser, setUser, updateUserProfile } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const form = event.target;
@@ -29,17 +30,28 @@ const Register = () => {
       return;
     }
 
-    registerUser(email, password)
-      .then((result) => {
-        toast("User Registration Successful");
-        updateProfile(name, photo);
-        setUser({ ...user, photoURL: photo, displayName: name });
-        form.reset();
-        navigate("/");
-      })
-      .catch(() => {
-        toast("User Registration Failed");
-      });
+    try {
+      const result = await registerUser(email, password);
+      await updateUserProfile(name, photo);
+      setUser({ ...user, photoURL: photo, displayName: name });
+      navigate("/");
+      toast("User Registration Successful");
+    } catch (err) {
+      toast(err?.message);
+    }
+
+    // registerUser(email, password)
+    //   .then((result) => {
+    //     toast("User Registration Successful");
+    //     updateProfile(
+    //       setUser({ ...result.user, photoURL: photo, displayName: name })
+    //     );
+    //     form.reset();
+    //     navigate("/");
+    //   })
+    //   .catch(() => {
+    //     toast("User Registration Failed");
+    //   });
   };
 
   return (
