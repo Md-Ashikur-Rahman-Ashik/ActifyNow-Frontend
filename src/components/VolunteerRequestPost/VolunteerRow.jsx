@@ -16,7 +16,6 @@ const VolunteerRow = ({ vol }) => {
       if (result.isConfirmed) {
         fetch(
           `https://b9a11-server-side-md-ashikur-rahman-ashik.vercel.app/newVolunteer/${_id}`,
-          { credentials: "include" },
           {
             method: "DELETE",
           }
