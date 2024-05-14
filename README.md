@@ -1,8 +1,13 @@
-# React + Vite
+# ActifyNow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to ActifyNow - a platform for organizing and discovering volunteer activities!
 
-Currently, two official plugins are available:
+[Visit ActifyNow](https://actifynow-bd532.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- **User Registration and Profile Creation**: Volunteers can register for an account and create profiles to manage their volunteer activities and preferences.
+- **Volunteer Activity Organization**: Users can organize volunteer activities, including creating events and managing details such as date, time, and location.
+- **Volunteer Opportunity Posting**: Organizations can post volunteer opportunities, outlining details like requirements, duration, and tasks involved.
+- **Volunteer Activity Management**: Users have tools to manage their volunteer activities efficiently, including features for organizing, editing, and deleting activities they are involved in.
+- **Volunteer Matching**: ActifyNow provides a matching system to connect volunteers with suitable opportunities based on their interests, skills, and availability.
